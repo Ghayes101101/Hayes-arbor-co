@@ -233,19 +233,19 @@
       <br>
       <p><strong>Phone:</strong> <a href="tel:+13214790973" style="color:var(--orange)">(321) 479-0973</a></p>
     </div>
-    <form id="quote-form" onsubmit="event.preventDefault(); sendQuoteRequest();">
+    <form id="quote-form" action="https://formspree.io/f/mrpbkvnp" method="POST">
       <div class="form-grid">
-        <input id="q-first" required placeholder="First Name">
-        <input id="q-last" required placeholder="Last Name">
+        <input id="q-first" name="first_name" required placeholder="First Name">
+        <input id="q-last" name="last_name" required placeholder="Last Name">
       </div>
       <div class="form-grid">
-        <input id="q-phone" required type="tel" placeholder="Phone Number">
-        <input id="q-address" required placeholder="Property Address">
+        <input id="q-phone" name="phone" required type="tel" placeholder="Phone Number">
+        <input id="q-address" name="address" required placeholder="Property Address">
       </div>
-      <select id="q-service"><option>Service Needed</option><option>Tree Removal</option><option>Tree Trimming</option><option>Palm Trimming</option><option>Storm Cleanup</option><option>Hazardous Tree</option><option>Other</option></select>
-      <textarea id="q-details" placeholder="Tell us about the project"></textarea>
+      <select id="q-service" name="service_needed"><option>Service Needed</option><option>Tree Removal</option><option>Tree Trimming</option><option>Palm Trimming</option><option>Storm Cleanup</option><option>Hazardous Tree</option><option>Other</option></select>
+      <textarea id="q-details" name="project_details" placeholder="Tell us about the project"></textarea>
       <button class="btn" type="submit">SEND QUOTE REQUEST</button>
-      <p class="small">Tap send and your request will open as a text message addressed to Hayes Arbor Co. so the details are ready to send.</p>
+      <p class="small">Your quote request will be sent directly to Hayes Arbor Co. We'll contact you shortly.</p>
     </form>
   </div>
 </section>
@@ -265,16 +265,7 @@
   <a class="btn" href="#estimate">FREE ESTIMATE</a>
 </div>
 <script>
-function sendQuoteRequest(){
-  const first=document.getElementById('q-first').value.trim();
-  const last=document.getElementById('q-last').value.trim();
-  const phone=document.getElementById('q-phone').value.trim();
-  const address=document.getElementById('q-address').value.trim();
-  const service=document.getElementById('q-service').value;
-  const details=document.getElementById('q-details').value.trim() || 'No additional details provided.';
-  const text=`NEW HAYES ARBOR CO. QUOTE REQUEST\n\nName: ${first} ${last}\nCustomer Phone: ${phone}\nJob Address: ${address}\nService: ${service}\nDetails: ${details}`;
-  window.location.href='sms:+13214790973?body='+encodeURIComponent(text);
-}
+
 </script>
 </body>
 </html>
